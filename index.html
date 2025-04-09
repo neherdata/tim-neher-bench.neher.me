@@ -17,8 +17,24 @@
 		data-token="eyJraWQiOiJVRzhZUjdWOVc5IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNzQ0MjExNjczLCJvcmlnaW4iOiIqLm5laGVyLm1lIn0.LLWlqRBIjAgdegY2cSsOsBrAOspX2xRuy-uTw6e4WMoGd248AS4Mr7wFGWvuPC8TPJO9GGWIMiVW8BN6VdLcVw">
 		</script>
 
-	<script const main=async ()=> {
+	<script type="module">
+		// Wait for MapKit JS to be ready to use.
+		const setupMapKitJs = async () => {
+			// If MapKit JS is not yet loaded...
+			if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+				// ...await <script>'s data-callback (window.initMapKit).
+				await new Promise(resolve => { window.initMapKit = resolve });
+				// Clean up.
+				delete window.initMapKit;
+			}
+		};
+
+		/**
+		 * Script Entry Point
+		 */
+		const main = async () => {
 			await setupMapKitJs();
+
 
 
 
