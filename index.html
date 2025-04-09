@@ -13,21 +13,23 @@
 	</style>
 
 	<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js" crossorigin async data-callback="initMapKit"
-		data-libraries="map" data-token="{{APPLE_MAPKITJS_TOKEN}}">
+		data-libraries="map"
+		data-token="eyJraWQiOiJVRzhZUjdWOVc5IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNzQ0MjExNjczLCJvcmlnaW4iOiIqLm5laGVyLm1lIn0.LLWlqRBIjAgdegY2cSsOsBrAOspX2xRuy-uTw6e4WMoGd248AS4Mr7wFGWvuPC8TPJO9GGWIMiVW8BN6VdLcVw">
 		</script>
 
 	<script const main=async ()=> {
 			await setupMapKitJs();
 
 
-			const cupertino = new mapkit.CoordinateRegion(
-				new mapkit.Coordinate(37.3316850890998, -122.030067374026),
+
+			const timbench = new mapkit.CoordinateRegion(
+				new mapkit.Coordinate(39.913493, -74.0770286),
 				new mapkit.CoordinateSpan(0.167647972, 0.354985255)
 			);
 
 			// Create a map in the element whose ID is "map-container".
 			const map = new mapkit.Map("map-container");
-			map.region = cupertino;
+			map.region = timbench;
 		};
 
 		main();
