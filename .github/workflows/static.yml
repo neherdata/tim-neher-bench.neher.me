@@ -35,13 +35,9 @@ jobs:
             - name: Replace token placeholder
               run: |
                   sed -i 's/{{MAPKIT_TOKEN}}/${{ secrets.APPLE_MAPKITJS_TOKEN }}/g' index.html
-            - name: Setup Pages
-              uses: actions/configure-pages@v5
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                  # Upload entire repository
-                  path: "."
+            # Deploy to GitHub Pages
             - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: . # Adjust if your files are in a subdirectory
